@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "set NEXT_STATIC_EXPORT=1 && next build && tsc -b",
+    "deploy": "npx wrangler pages deploy .next --project-name=deployi-docs",
     "dev": "next dev",
     "start": "next start",
     "build:docs": "node generate-docs.mjs"
