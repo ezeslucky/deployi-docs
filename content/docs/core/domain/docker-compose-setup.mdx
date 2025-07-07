@@ -18,7 +18,7 @@ To make a Docker Compose service or container accessible via a domain, add two t
 
 <Steps>
 <Step>
-Add the `dokploy-network` network to each service.
+Add the `deployi-network` network to each service.
 
  
 ```yaml
@@ -26,12 +26,12 @@ services:
   app:
     image: nextjs-app
     networks:
-      - dokploy-network
+      - deployi-network
     ports:
       - "3000"
 
 networks:
-  dokploy-network:
+  deployi-network:
     external: true
 ```
  
@@ -57,7 +57,7 @@ services:
   app:
     image: nextjs-app
     networks:
-      - dokploy-network
+      - deployi-network
     ports:
       - "3000"
     labels:
@@ -67,7 +67,7 @@ services:
       - "traefik.http.routers.<unique-name>.rule=Host(`app.yourdomain.com`)"
       - "traefik.http.services.<unique-name>.loadbalancer.server.port=3000"
 networks:
-  dokploy-network:
+  deployi-network:
     external: true
 ```
  

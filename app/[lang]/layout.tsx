@@ -30,7 +30,7 @@ const modes: Mode[] = [
 	{
 		param: "core/get-started/introduction",
 		name: "Core",
-		package: "Dokploy",
+		package: "Deployi",
 		description: "The core",
 		icon: LibraryIcon,
 	},
@@ -49,6 +49,16 @@ const modes: Mode[] = [
 		icon: PlugZapIcon,
 	},
 ];
+
+// Helper function to get consistent title
+function getNavTitle(lang: string): string {
+	switch (lang) {
+		case "cn":
+			return "目錄";
+		default:
+			return "Deployi";
+	}
+}
 
 export default function Layout({
 	params,
@@ -88,7 +98,7 @@ export default function Layout({
 							i18n
 							tree={pageTree[params.lang]}
 							nav={{
-								title: params.lang === "cn" ? "目錄" : "Dokploy",
+								title: getNavTitle(params.lang),
 								url: `/${params.lang}`,
 								transparentMode: "none",
 							}}

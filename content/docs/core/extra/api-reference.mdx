@@ -1,6 +1,6 @@
 ---
-title: Dokploy API
-description: Endpoints for dokploy
+title: Deployi API
+description: Endpoints for deployi
 full: true
 ---
 
@@ -19670,9 +19670,9 @@ export interface Response {
 
 <API>
 
-<APIInfo method={"GET"} route={"/settings.getDokployVersion"}>
+<APIInfo method={"GET"} route={"/settings.getdeployiVersion"}>
 
-## settings-getDokployVersion
+## settings-getdeployiVersion
 
 ### Authorization
 
@@ -19696,7 +19696,7 @@ In: `header`
 <Request value={"cURL"}>
 
 ```bash
-curl -X GET "http://localhost:3000/settings.getDokployVersion"
+curl -X GET "http://localhost:3000/settings.getdeployiVersion"
 ```
 
 </Request>
@@ -19704,7 +19704,7 @@ curl -X GET "http://localhost:3000/settings.getDokployVersion"
 <Request value={"JavaScript"}>
 
 ```js
-fetch("http://localhost:3000/settings.getDokployVersion", {
+fetch("http://localhost:3000/settings.getdeployiVersion", {
   method: "GET"
 });
 ```

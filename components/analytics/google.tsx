@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import NoSSR from "@/components/NoSSR";
 import initializeGA from ".";
 
-export default function GoogleAnalytics() {
+function GoogleAnalyticsInner() {
 	useEffect(() => {
 		// @ts-ignore
 		if (!window.GA_INITIALIZED) {
@@ -14,4 +15,12 @@ export default function GoogleAnalytics() {
 	}, []);
 
 	return null;
+}
+
+export default function GoogleAnalytics() {
+	return (
+		<NoSSR>
+			<GoogleAnalyticsInner />
+		</NoSSR>
+	);
 }

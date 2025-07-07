@@ -1,11 +1,11 @@
 ---
 title: "Certificates"
-description: "Learn how to set up certificates for the Dokploy panel"
+description: "Learn how to set up certificates for the Deployi panel"
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 
-When using a domain for Dokploy, we offer 3 options for certificates:
+When using a domain for Deployi, we offer 3 options for certificates:
 
 - Use `None`
 - Use a free SSL certificate from [Let's Encrypt](https://letsencrypt.org/)
@@ -15,7 +15,7 @@ When using a domain for Dokploy, we offer 3 options for certificates:
 
 Using `None` basically means we will not assign a `tlsResolver`, so your DNS provider can implement SSL certificates from their own server.
 
-<Callout title="Cloudflare">When you register a domain on Cloudflare, the SSL certificate is automatically assigned by Cloudflare, so you need to select `None` in Dokploy and disable HTTPS.</Callout>
+<Callout title="Cloudflare">When you register a domain on Cloudflare, the SSL certificate is automatically assigned by Cloudflare, so you need to select `None` in Deployi and disable HTTPS.</Callout>
 
 ## Let's Encrypt
 
@@ -31,7 +31,7 @@ Using a free SSL certificate from [Let's Encrypt](https://letsencrypt.org/) is t
 
 For domains managed by providers other than Cloudflare, the process is simple:
 
-1. In Dokploy, select `Let's Encrypt` and enable `HTTPS`.
+1. In Deployi, select `Let's Encrypt` and enable `HTTPS`.
 2. Ensure your DNS records are correctly set up to point to your server.
 3. Traefik will handle the rest, and the certificate should be generated within about 20 seconds.
 
@@ -40,7 +40,7 @@ For domains managed by providers other than Cloudflare, the process is simple:
 If your domain is managed by Cloudflare:
 
 1. Ensure your domain is set to `Full (Strict)` mode in Cloudflare.
-2. In Dokploy, select `Let's Encrypt` and enable `HTTPS`.
+2. In Deployi, select `Let's Encrypt` and enable `HTTPS`.
 
 Steps for Cloudflare configuration:
 

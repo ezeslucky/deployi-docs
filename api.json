@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Dokploy API",
-    "description": "Endpoints for dokploy",
+    "title": "Deployi API",
+    "description": "Endpoints for deployi",
     "version": "v0.2.5"
   },
   "servers": [
@@ -9142,9 +9142,9 @@
         }
       }
     },
-    "/settings.getDokployVersion": {
+    "/settings.getDeployiVersion": {
       "get": {
-        "operationId": "settings-getDokployVersion",
+        "operationId": "settings-getDeployiVersion",
         "tags": [
           "settings"
         ],

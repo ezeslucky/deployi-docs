@@ -7,7 +7,7 @@ When using Docker Compose, adding a domain to a service is a straightforward pro
 
 Key Steps:
 
-1. Add the service to the `dokploy-network`.
+1. Add the service to the `deployi-network`.
 2. Use Traefik labels to configure routing.
 
 Example Scenario
@@ -57,7 +57,7 @@ volumes:
 
 ## Step 1: Add the Network
 
-First, we'll add the dokploy-network to our services:
+First, we'll add the deployi-network to our services:
 
 ```yaml
 version: '3.8'
@@ -66,23 +66,23 @@ services:
   frontend:
     # ... (previous configuration)
     networks:
-      - dokploy-network
+      - deployi-network
 
   backend:
     # ... (previous configuration)
     networks:
-      - dokploy-network
+      - deployi-network
 
   database:
     # ... (previous configuration)
     networks:
-      - dokploy-network
+      - deployi-network
 
 volumes:
   db-data:
 
 networks:
-  dokploy-network:
+  deployi-network:
     external: true
 ```
 
@@ -94,8 +94,8 @@ Now, let's add Traefik labels to route domains to our services. We'll focus on t
 
 1. `traefik.enable=true`
 This label tells Traefik that this service should be routed by Traefik.
-2. `traefik.http.routers.<UNIQUE-RULE>.rule=Host('your-domain.dokploy.com')`
-This label tells Traefik that the domain to be used is `your-domain.dokploy.com`
+2. `traefik.http.routers.<UNIQUE-RULE>.rule=Host('your-domain.deployi.com')`
+This label tells Traefik that the domain to be used is `your-domain.deployi.com`
 3. `traefik.http.routers.<UNIQUE-RULE>.entrypoints=web`
 This label tells Traefik that the service should be accessible via the `http` protocol.
 4. `traefik.http.services.<UNIQUE-RULE>.loadbalancer.server.port=3000`
@@ -125,10 +125,10 @@ services:
     depends_on:
       - backend
     networks:
-      - dokploy-network
+      - deployi-network
     labels:
       - traefik.enable=true
-      - traefik.http.routers.frontend-app.rule=Host(`frontend.dokploy.com`)
+      - traefik.http.routers.frontend-app.rule=Host(`frontend.deployi.com`)
       - traefik.http.routers.frontend-app.entrypoints=web
       - traefik.http.services.frontend-app.loadbalancer.server.port=3000
 
@@ -145,10 +145,10 @@ services:
     depends_on:
       - database
     networks:
-      - dokploy-network
+      - deployi-network
     labels:
       - traefik.enable=true
-      - traefik.http.routers.backend-app.rule=Host(`backend.dokploy.com`)
+      - traefik.http.routers.backend-app.rule=Host(`backend.deployi.com`)
       - traefik.http.routers.backend-app.entrypoints=web
       - traefik.http.services.backend-app.loadbalancer.server.port=5000
 
@@ -159,7 +159,7 @@ volumes:
   db-data:
 
 networks:
-  dokploy-network:
+  deployi-network:
     external: true
 ```
 
@@ -167,7 +167,7 @@ Understanding Traefik Labels
 
 
 1. `traefik.enable=true`   Enables Traefik routing for the service.
-2. `traefik.http.routers.<UNIQUE-RULE>.rule=Host('your-domain.dokploy.com')` Specifies the domain for the service
+2. `traefik.http.routers.<UNIQUE-RULE>.rule=Host('your-domain.deployi.com')` Specifies the domain for the service
 3. `traefik.http.routers.<UNIQUE-RULE>.entrypoints=web`  Sets the service to be accessible via HTTP.
 4. `traefik.http.services.<UNIQUE-RULE>.loadbalancer.server.port=3000` Specifies the port your service is using internally.
 

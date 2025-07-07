@@ -74,7 +74,7 @@ export function generateMetadata({
 		},
 		twitter: {
 			card: "summary_large_image",
-			creator: "@siumauricio",
+			creator: "@ezeslucky",
 			title: page.data.title,
 			description: page.data.description,
 			images: [
@@ -88,9 +88,9 @@ export function generateMetadata({
 				},
 			],
 		},
-		applicationName: "Dokploy Docs",
+		applicationName: "Deployi Docs",
 		keywords: [
-			"dokploy",
+			"deployi",
 			"vps",
 			"open source",
 			"cloud",
